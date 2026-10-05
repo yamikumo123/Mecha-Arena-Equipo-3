@@ -7,18 +7,19 @@ class CombateService:
         if not defensor.esta_vivo():
             raise ValueError("El defensor ya está derrotado.")
 
-        danio = defensor.recibir_danio(atacante.ataque)
+        danio = atacante.ataque
+        defensor.vida = defensor.vida - danio
 
         return danio
 
-    def esta_derrotado(self, mecha):
-        return not mecha.esta_vivo()
+    def esta_derrotado(self, robot):
+        return not robot.esta_vivo()
 
-    def obtener_ganador(self, mecha1, mecha2):
-        if self.esta_derrotado(mecha1):
-            return mecha2.nombre
+    def obtener_ganador(self, robot1, robot2):
+        if self.esta_derrotado(robot1):
+            return robot2.nombre
 
-        if self.esta_derrotado(mecha2):
-            return mecha1.nombre
+        if self.esta_derrotado(robot2):
+            return robot1.nombre
 
         return None
