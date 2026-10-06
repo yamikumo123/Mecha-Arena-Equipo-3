@@ -1,5 +1,6 @@
-from src.ui.cli_interface import MenuCLI
+from src.ui.gui_interface import MenuGUI
 
 if __name__ == "__main__":
-    app = MenuCLI()
+    app = MenuGUI()
     app.iniciar()
+    
